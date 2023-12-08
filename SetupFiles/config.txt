@@ -1,0 +1,25 @@
+[aws]
+aws_region_name = us-east-1
+
+[aliases]
+ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
+
+[global]
+cluster_template = default
+update_check = true
+sanity_check = true
+
+[cluster default]
+key_name = mpi_key
+scheduler = sge
+master_instance_type = t2.small
+base_os = alinux2
+vpc_settings = default
+compute_instance_type = t2.small
+initial_queue_size = 5
+max_queue_size = 7
+maintain_initial_size = true
+
+[vpc default]
+vpc_id = vpc-f09d418d
+master_subnet_id = subnet-64845355
